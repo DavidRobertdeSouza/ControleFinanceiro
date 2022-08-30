@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="global.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div>
+        <ul class="divCadastro">
+            <img src="./assets/mais.png" alt="Imagem de Mais" class="imgCadastro">
+            <li>
+                <label for="inpAcao">Insira a ação</label>
+                <input type="text" name="inpAcao" id="inpAcao" placeholder="Ex: MGLU" >
+            </li>
+            <li>
+                <label for="inpDataCompra">Data da compra</label>
+                <input type="text" name="inpDataCompra" id="inpDataCompra">
+            </li>
+            <li>
+                <label for="inpQtd">Quantidade comprada</label>
+                <input type="text" name="inpQtd" id="inpQtd">
+            </li>
+            <li>
+                <label for="inpValor">Valor pago</label>
+                <input type="text" name="inpValor" id="inpValor">
+            </li>
+            <li>
+                <input type="button" name="Cadastrar" id="btnCadastrar" class='btnCadastrar' value='Cadastrar Ação'>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>
