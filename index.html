@@ -14,30 +14,30 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div>
+    <form id=novoItem>
         <ul class="divCadastro">
             <img src="./assets/mais.png" alt="Imagem de Mais" class="imgCadastro">
             <li>
                 <label for="inpAcao">Insira a ação</label>
-                <input type="text" name="inpAcao" id="inpAcao" placeholder="Ex: MGLU" >
+                <input type="text" name="inpAcao" id="inpAcao" placeholder="Ex: MGLU" required>
             </li>
             <li>
                 <label for="inpDataCompra">Data da compra</label>
-                <input type="text" name="inpDataCompra" id="inpDataCompra">
+                <input type="text" name="inpDataCompra" id="inpDataCompra" required>
             </li>
             <li>
                 <label for="inpQtd">Quantidade comprada</label>
-                <input type="text" name="inpQtd" id="inpQtd">
+                <input type="text" name="inpQtd" id="inpQtd" required>
             </li>
             <li>
                 <label for="inpValor">Valor pago</label>
-                <input type="text" name="inpValor" id="inpValor">
+                <input type="text" name="inpValor" id="inpValor" required>
             </li>
             <li>
-                <input type="button" name="Cadastrar" id="btnCadastrar" class='btnCadastrar' value='Cadastrar Ação'>
+                <input type="submit" name="Cadastrar" id="btnCadastrar" class='btnCadastrar' value='Cadastrar Ação'>
             </li>
         </ul>
-    </div>
+    </form>
     
 </body>
 </html>
