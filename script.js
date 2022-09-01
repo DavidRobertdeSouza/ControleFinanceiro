@@ -3,10 +3,14 @@ const $inpDataCompra    = qs('#inpDataCompra')
 const $inpQtd           = qs('#inpQtd')
 const $inpValor         = qs('#inpValor')
 const $btnCadastrar     = qs('#btnCadastrar')
+const $selectAcao       = qs('#editable-select')
 
 const $form = qs('#novoItem')
 
 let itemLocal = JSON.parse(localStorage.getItem('item')) || []
+
+optionsAcoes()
+$('#editable-select').editableSelect();
 
 $form.onsubmit = (e) => {
     e.preventDefault()
@@ -36,13 +40,13 @@ $form.onsubmit = (e) => {
     console.log('sa')
 }
 
-// $btnCadastrar.onclick = cadastrarDados
+function optionsAcoes(){
+    console.log(obj)
+    for(let i in obj){
+        let nomeAcaoSigla = `${obj[i].sigla} - ${obj[i].nome}`
+        carregarSelect(obj[i].sigla, nomeAcaoSigla, $selectAcao)
+    }
+}
 
-// function cadastrarDados(){
-//     dados.push($inpAcao.value)
-//     dados.push($inpDataCompra.value)
-//     dados.push($inpQtd.value)
-//     dados.push($inpValor.value)
-//     console.log(dados)
-//     dados = []
-// }
+
+

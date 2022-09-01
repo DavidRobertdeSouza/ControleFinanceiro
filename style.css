@@ -62,7 +62,7 @@ body{
     -webkit-text-fill-color: transparent;
 }
 
-.divCadastro>li>input{
+.divCadastro>li>input, select{
     box-shadow: -1px -1px 10px 0px #751ed7c7, 3px 3px 16px 0px #000000, 4px 4px 20px 0px #000000;
     border-radius: 10px;
     background-color: var(--color9);
@@ -95,3 +95,5 @@ li:last-child{
     -webkit-transform: scale(1.02);
     transform: scale(1.02);
 }
+
+.es-list { max-height: 160px !important; }
