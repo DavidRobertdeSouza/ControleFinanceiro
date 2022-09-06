@@ -10,9 +10,14 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script src="//code.jquery.com/jquery-1.12.4.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- <script src="//code.jquery.com/jquery-1.12.4.min.js" defer></script>
     <script src="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.js" defer></script>
-    <link href="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.css" rel="stylesheet">
+    <link href="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.css" rel="stylesheet"> -->
 
 
     <script src="global.js" defer></script>
@@ -24,19 +29,19 @@
             <img src="./assets/mais.png" alt="Imagem de Mais" class="imgCadastro">
             <li>
                 <label for="inpAcao">Insira a ação</label>
-                <select name="editable-select" id="editable-select">
+                <select name="selAcao" id="selAcao">
                 </select>
             </li>
             <li>
                 <label for="inpDataCompra">Data da compra</label>
-                <input type="text" name="inpDataCompra" id="inpDataCompra" required>
+                <input type="date" name="inpDataCompra" id="inpDataCompra" required>
             </li>
             <li>
                 <label for="inpQtd">Quantidade comprada</label>
-                <input type="text" name="inpQtd" id="inpQtd" required>
+                <input type="number" name="inpQtd" id="inpQtd" required>
             </li>
             <li>
-                <label for="inpValor">Valor pago</label>
+                <label for="inpValor">Valor pago (R$)</label>
                 <input type="text" name="inpValor" id="inpValor" required>
             </li>
             <li>

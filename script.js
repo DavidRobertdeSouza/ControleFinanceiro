@@ -3,19 +3,23 @@ const $inpDataCompra    = qs('#inpDataCompra')
 const $inpQtd           = qs('#inpQtd')
 const $inpValor         = qs('#inpValor')
 const $btnCadastrar     = qs('#btnCadastrar')
-const $selectAcao       = qs('#editable-select')
+const $selectAcao       = qs('#selAcao')
 
 const $form = qs('#novoItem')
 
 let itemLocal = JSON.parse(localStorage.getItem('item')) || []
 
 optionsAcoes()
-$('#editable-select').editableSelect();
+$(document).ready(function() {
+    $('#selAcao').select2();
+});
+// $('#editable-select').editableSelect();
 
 $form.onsubmit = (e) => {
     e.preventDefault()
 
-    const acao = e.target.elements['inpAcao']
+    const acao = qs('#selAcao')
+    const dadoAcao = qs('#select2-selAcao-container')
     const dataCompra = e.target.elements['inpDataCompra']
     const quantidade = e.target.elements['inpQtd']
     const valor = e.target.elements['inpValor']
@@ -30,6 +34,8 @@ $form.onsubmit = (e) => {
     localStorage.setItem('item', JSON.stringify(acaoAtual))
 
     acao.value = ''
+    dadoAcao.setAttribute('title', '')
+    dadoAcao.innerText = ''
     dataCompra.value = ''
     quantidade.value = ''
     valor.value = ''

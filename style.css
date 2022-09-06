@@ -32,10 +32,14 @@ body{
 .divCadastro{
     position: relative;
     gap: 2px;
-    background-color: #26074a;
+    background-image: linear-gradient(121deg, #26074a, var(--color1));
     padding: 3em 1em 1em 1em;
     border-radius: 25px;
-    box-shadow: 2px 3px 11px 0px #121212b7;
+    box-shadow: 
+    inset 2px 2px 3px 0px #751ed7c7, 
+    -1px -1px 10px 0px #751ed7c7, 
+    3px 3px 16px 0px #000000, 
+    4px 4px 20px 0px #000000;
 }
 
 .imgCadastro{
@@ -52,6 +56,7 @@ body{
     gap: 15px;
     padding-block: 8px;
     min-height: 2em;
+    min-width: 650px;
 }
 
 .divCadastro>li>label{
@@ -62,11 +67,30 @@ body{
     -webkit-text-fill-color: transparent;
 }
 
-.divCadastro>li>input, select{
+.divCadastro>li>input, select, .select2-selection, .select2-dropdown {
     box-shadow: -1px -1px 10px 0px #751ed7c7, 3px 3px 16px 0px #000000, 4px 4px 20px 0px #000000;
     border-radius: 10px;
-    background-color: var(--color9);
-    
+    background-color: var(--color9) !important;
+    color: var(--color3);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-family);
+}
+
+.select2{
+    max-width: 380px;
+}
+
+.select2-selection{
+    border-radius: 10px !important;
+}
+
+.select2-selection__rendered{
+    color: var(--color3) !important;
+}
+
+.select2-dropdown{
+    border-radius: 0 !important;
 }
 
 li:last-child{
@@ -80,9 +104,13 @@ li:last-child{
     width: 50%;
     padding: 0.5em;
     border-radius: 10px;
-    font-size: 28px;
-    font-weight: 700;
-    box-shadow: inset 2px 2px 3px 0px #751ed7c7, -1px -1px 10px 0px #751ed7c7, 3px 3px 16px 0px #000000, 4px 4px 20px 0px #000000;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    box-shadow: 
+    inset 2px 2px 3px 0px #751ed7c7, 
+    -1px -1px 10px 0px #751ed7c7, 
+    3px 3px 16px 0px #000000, 
+    4px 4px 20px 0px #000000 !important;
     cursor: pointer;
     transition: transform .2s ease;
     border: none;
