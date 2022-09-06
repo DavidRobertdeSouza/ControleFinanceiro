@@ -13,7 +13,6 @@ optionsAcoes()
 $(document).ready(function() {
     $('#selAcao').select2();
 });
-// $('#editable-select').editableSelect();
 
 $form.onsubmit = (e) => {
     e.preventDefault()
