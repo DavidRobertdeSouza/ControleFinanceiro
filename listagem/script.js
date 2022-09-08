@@ -40,3 +40,21 @@ function formataData(date){
 }
 
 buscarDados()
+
+function retornarValorAtual(acao){
+  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=8e75ded5&symbol=${acao}`
+  fetch(urlApi)
+  .then(function(response) {
+    response.json().then(function(data) {
+      for(let i in data.results){
+        let novo = data.results
+        console.log(novo)
+      }
+    })
+  })
+  .catch(function(err) { 
+    console.error(err);
+  });
+}
+
+retornarValorAtual('MGLU3')
