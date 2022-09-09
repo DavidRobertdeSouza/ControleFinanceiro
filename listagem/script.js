@@ -16,16 +16,17 @@ function adicionarTabela(valores){
 }
 
 
-function buscarDados(){
+async function buscarDados(){
   let arrCompleto = []
 
   for(let item of valorLista){
     let dados = []
-    dados.push(item.acao.toUpperCase())
+    let acaoName = item.acao.toUpperCase()
+    dados.push(acaoName)
     dados.push(formataData(item.dataCompra))
     dados.push(item.quantidade)
     dados.push(`R$ ${item.valor}`)
-    dados.push(`R$ ${item.acao}`)
+    dados.push(`R$ ${await retornarValorAtual(acaoName)}`)
     dados.push(`${item.acao} %`)
     dados.push(`R$ ${item.acao}`)
     arrCompleto.push(dados)
@@ -41,20 +42,17 @@ function formataData(date){
 
 buscarDados()
 
-function retornarValorAtual(acao){
-  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=8e75ded5&symbol=${acao}`
-  fetch(urlApi)
-  .then(function(response) {
-    response.json().then(function(data) {
-      for(let i in data.results){
-        let novo = data.results
-        console.log(novo)
-      }
+async function retornarValorAtual(acaoName){
+  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=8e75ded5&symbol=${acaoName}`
+  return fetch(urlApi)
+  .then(async response => {
+    return response.json().then(data => {
+      return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
     })
   })
   .catch(function(err) { 
     console.error(err);
   });
-}
 
-retornarValorAtual('MGLU3')
+  
+}
