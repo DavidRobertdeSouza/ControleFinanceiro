@@ -567,3 +567,22 @@ function carregarSelect(chave, valor, elemento){
     elemento.appendChild($option)
 }
 
+function formatReal(int)
+{
+    int = int.replace(/[^0-9]/g,'');
+    var tmp = parseInt(int)+'';
+    if(tmp.length == 1){
+        tmp = parseInt(int)+'';
+        tmp = tmp.replace(/([0-9]{1})$/g, "R$ 0,0$1");
+        return tmp
+    }
+    if(tmp.length == 2){
+        tmp = parseInt(int)+'';
+        tmp = tmp.replace(/([0-9]{2})$/g, "R$ 0,$1");
+        return tmp
+    }
+    tmp = parseInt(int)+'';
+    tmp = tmp.replace(/([0-9]{3}$)?([0-9]{2}$)/g, "$1.$2")
+    let f = parseFloat(tmp).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    return f
+}

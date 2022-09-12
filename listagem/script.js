@@ -25,10 +25,11 @@ async function buscarDados(){
     dados.push(acaoName)
     dados.push(formataData(item.dataCompra))
     dados.push(item.quantidade)
-    dados.push(`R$ ${item.valor}`)
-    dados.push(`R$ ${await retornarValorAtual(acaoName)}`)
+    dados.push(`${formatReal(item.valor)}`)
+    // dados.push(`R$ ${await retornarValorAtual(acaoName)}`)
+    dados.push(`${formatReal(item.valor)}`)
     dados.push(`${item.acao} %`)
-    dados.push(`R$ ${item.acao}`)
+    dados.push(`${item.acao}`)
     arrCompleto.push(dados)
   }
 
@@ -42,17 +43,15 @@ function formataData(date){
 
 buscarDados()
 
-async function retornarValorAtual(acaoName){
-  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=8e75ded5&symbol=${acaoName}`
-  return fetch(urlApi)
-  .then(async response => {
-    return response.json().then(data => {
-      return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
-    })
-  })
-  .catch(function(err) { 
-    console.error(err);
-  });
-
-  
-}
+// async function retornarValorAtual(acaoName){
+//   const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=8e75ded5&symbol=${acaoName}`
+//   return fetch(urlApi)
+//   .then(async response => {
+//     return response.json().then(data => {
+//       return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
+//     })
+//   })
+//   .catch(function(err) { 
+//     console.error(err);
+//   });
+// }

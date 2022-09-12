@@ -27,10 +27,12 @@ $form.onsubmit = (e) => {
         'acao': acao.value,
         'dataCompra': dataCompra.value,
         'quantidade': quantidade.value,
-        'valor': valor.value
+        'valor': valor.value.replace(/[^0-9]/g,'')
     }
 
-    localStorage.setItem('item', JSON.stringify(acaoAtual))
+    itemLocal.push(acaoAtual)
+
+    localStorage.setItem('item', JSON.stringify(itemLocal))
 
     acao.value = ''
     dadoAcao.setAttribute('title', '')
@@ -38,20 +40,26 @@ $form.onsubmit = (e) => {
     dataCompra.value = ''
     quantidade.value = ''
     valor.value = ''
-
-    console.log(acaoAtual)
-
-    console.log(e)
-    console.log('sa')
 }
 
 function optionsAcoes(){
-    console.log(obj)
     for(let i in obj){
         let nomeAcaoSigla = `${obj[i].sigla} - ${obj[i].nome}`
         carregarSelect(obj[i].sigla, nomeAcaoSigla, $selectAcao)
     }
 }
 
-
-
+let valorEnviadoFormat = 0
+$inpValor.oninput = (e) =>{
+    if(!isNaN(e.data) && e.data != null){
+        valorEnviadoFormat += e.data
+        $inpValor.value = formatReal(valorEnviadoFormat)
+    }else if(isNaN(e.data) && e.inputType != 'deleteContentBackward'){
+        $inpValor.value = formatReal(valorEnviadoFormat)
+    }
+    else{
+        $inpValor.value = '' 
+        valorEnviadoFormat = ''
+    }
+}
+$inpValor.onchange = () => valorEnviadoFormat = 0
