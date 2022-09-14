@@ -22,14 +22,20 @@ async function buscarDados(){
   for(let item of valorLista){
     let dados = []
     let acaoName = item.acao.toUpperCase()
+    let valorAtual = await retornarValorAtual(acaoName)
+    let alorPerdGan = parseFloat((parseFloat(valorAtual.replace(',','.')) - (parseFloat(formatReal(item.valor).replace(/[^0-9]/g,''))/100) ) * parseInt(item.quantidade)).toFixed(2)
+    let percPerdGan = ((parseFloat(formatReal(item.valor).replace(/[^0-9]/g,''))/100)+parseFloat(alorPerdGan))/(parseFloat(formatReal(item.valor).replace(/[^0-9]/g,'')/100))-1
+    console.log(parseFloat(formatReal(item.valor).replace(/[^0-9]/g,'')))
+    console.log(alorPerdGan)
+
     dados.push(acaoName)
     dados.push(formataData(item.dataCompra))
     dados.push(item.quantidade)
     dados.push(`${formatReal(item.valor)}`)
-    // dados.push(`R$ ${await retornarValorAtual(acaoName)}`)
-    dados.push(`${formatReal(item.valor)}`)
-    dados.push(`${item.acao} %`)
-    dados.push(`${item.acao}`)
+    dados.push(`R$ ${valorAtual}`)
+    // dados.push(`${formatReal(item.valor)}`)
+    dados.push(`${percPerdGan} %`)
+    dados.push(`R$ ${alorPerdGan}`)
     arrCompleto.push(dados)
   }
 
@@ -43,15 +49,15 @@ function formataData(date){
 
 buscarDados()
 
-// async function retornarValorAtual(acaoName){
-//   const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=8e75ded5&symbol=${acaoName}`
-//   return fetch(urlApi)
-//   .then(async response => {
-//     return response.json().then(data => {
-//       return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
-//     })
-//   })
-//   .catch(function(err) { 
-//     console.error(err);
-//   });
-// }
+async function retornarValorAtual(acaoName){
+  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=3e773a06&symbol=${acaoName}`
+  return fetch(urlApi)
+  .then(async response => {
+    return response.json().then(data => {
+      return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
+    })
+  })
+  .catch(function(err) { 
+    console.error(err);
+  });
+}
