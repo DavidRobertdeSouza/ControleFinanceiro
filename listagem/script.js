@@ -23,10 +23,11 @@ async function buscarDados(){
     let dados = []
     let acaoName = item.acao.toUpperCase()
     let valorAtual = await retornarValorAtual(acaoName)
-    let alorPerdGan = parseFloat((parseFloat(valorAtual.replace(',','.')) - (parseFloat(formatReal(item.valor).replace(/[^0-9]/g,''))/100) ) * parseInt(item.quantidade)).toFixed(2)
-    let percPerdGan = ((parseFloat(formatReal(item.valor).replace(/[^0-9]/g,''))/100)+parseFloat(alorPerdGan))/(parseFloat(formatReal(item.valor).replace(/[^0-9]/g,'')/100))-1
-    console.log(parseFloat(formatReal(item.valor).replace(/[^0-9]/g,'')))
-    console.log(alorPerdGan)
+    let valorComprado = parseFloat(formatReal(item.valor).replace(/[^0-9]/g,'')/100) * item.quantidade
+    let valorPerdGan = parseFloat((parseFloat(valorAtual.replace(',','.')) - (valorComprado/item.quantidade)) * parseInt(item.quantidade)).toFixed(2)
+    let percPerdGan = parseFloat((((valorComprado + parseFloat(valorPerdGan))/valorComprado)-1)*100).toFixed(2)
+    console.log(valorComprado)
+    console.log(parseFloat(valorPerdGan))
 
     dados.push(acaoName)
     dados.push(formataData(item.dataCompra))
@@ -35,7 +36,7 @@ async function buscarDados(){
     dados.push(`R$ ${valorAtual}`)
     // dados.push(`${formatReal(item.valor)}`)
     dados.push(`${percPerdGan} %`)
-    dados.push(`R$ ${alorPerdGan}`)
+    dados.push(`R$ ${valorPerdGan}`)
     arrCompleto.push(dados)
   }
 
@@ -49,15 +50,15 @@ function formataData(date){
 
 buscarDados()
 
-// async function retornarValorAtual(acaoName){
-//   const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=3e773a06&symbol=${acaoName}`
-//   return fetch(urlApi)
-//   .then(async response => {
-//     return response.json().then(data => {
-//       return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
-//     })
-//   })
-//   .catch(function(err) { 
-//     console.error(err);
-//   });
-// }
+async function retornarValorAtual(acaoName){
+  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=3e773a06&symbol=${acaoName}`
+  return fetch(urlApi)
+  .then(async response => {
+    return response.json().then(data => {
+      return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
+    })
+  })
+  .catch(function(err) { 
+    console.error(err);
+  });
+}
