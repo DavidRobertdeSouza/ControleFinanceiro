@@ -50,15 +50,15 @@ function formataData(date){
 
 buscarDados()
 
-async function retornarValorAtual(acaoName){
-  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=3e773a06&symbol=${acaoName}`
-  return fetch(urlApi)
-  .then(async response => {
-    return response.json().then(data => {
-      return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
-    })
-  })
-  .catch(function(err) { 
-    console.error(err);
-  });
-}
+// async function retornarValorAtual(acaoName){
+//   const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=3e773a06&symbol=${acaoName}`
+//   return fetch(urlApi)
+//   .then(async response => {
+//     return response.json().then(data => {
+//       return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
+//     })
+//   })
+//   .catch(function(err) { 
+//     console.error(err);
+//   });
+// }
