@@ -8,30 +8,40 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="./style/global.css">
+    <link rel="stylesheet" href="./Alert/style.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../style/global.css">
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script src="../scripts/global.js" defer></script>
+    <script src="https://kit.fontawesome.com/7ed21a5751.js"></script>
+    
+    <script src="./scripts/global.js" defer></script>
+    <script src="./Alert/script.js" defer></script>
     <script src="./script.js" defer></script>
 </head>
 <body>
     <header>
         <div class="divLogo">
-            <img class="imgLogo" src="../assets/Logo.png" alt="Logo">
+            <img class="imgLogo" src="./assets/Logo.png" alt="Logo">
         </div>
         <div class="divButtonHeader">
             <a href='#'>Cadastro</a>
-            <a href='../listagem'>Listagem</a>
+            <a href='./listagem'>Listagem</a>
         </div>
     </header>
+    <div id= div-notification class='notification hide'>
+        <span id = icon-notification></span>
+        <span class='msg'></span>
+        <span class='close-btn'>
+            <span class='fa-solid fa-xmark'></span>
+        </span>
+    </div>
     <form id=novoItem>
         <ul class="divCadastro">
-            <img src="../assets/mais.png" alt="Imagem de Mais" class="imgCadastro">
+            <img src="./assets/mais.png" alt="Imagem de Mais" class="imgCadastro">
             <li>
                 <label for="inpAcao">Insira a ação</label>
                 <select name="selAcao" id="selAcao">
@@ -47,7 +57,7 @@
             </li>
             <li>
                 <label for="inpValor">Valor pago (R$)</label>
-                <input type="text" name="inpValor" id="inpValor" required>
+                <input type="" name="inpValor" id="inpValor" required>
             </li>
             <li>
                 <input type="submit" name="Cadastrar" id="btnCadastrar" class='btnCadastrar' value='Cadastrar Ação'>

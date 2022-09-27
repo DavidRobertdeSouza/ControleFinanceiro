@@ -33,6 +33,7 @@ $form.onsubmit = (e) => {
     itemLocal.push(acaoAtual)
 
     localStorage.setItem('item', JSON.stringify(itemLocal))
+    showNotification('Success', 'success', 3500)
 
     acao.value = ''
     dadoAcao.setAttribute('title', '')

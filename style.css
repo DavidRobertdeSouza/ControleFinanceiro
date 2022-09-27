@@ -34,12 +34,14 @@ form{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    padding-block: 8px;
-    min-height: 2em;
+    padding-block: 5px;
+    min-height: 2.5em;
     min-width: 650px;
 }
 
 .divCadastro>li>label{
+    display: flex;
+    align-items: center;
     font-size: 25px;
     font-weight: 400;
     background-image: linear-gradient(143deg, var(--color3), var(--color3), var(--color5));
