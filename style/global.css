@@ -20,7 +20,7 @@
 }
 
 body{
-  background-image: linear-gradient(146deg, #fff3fe, #ffcbfb);
+  background-image: linear-gradient(146deg, #ffffff, #e5e5e5);
   color: var(--color3);
   font-family: var(--font-family);
 }
@@ -40,18 +40,17 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-
 header{
   height: 70px;
   width: 100%;
-  background-color: var(--color-header);
+  background-color: #14C38E;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 
-    -1px -1px 10px 0px #d71ea7c7, 
-    -2px 2px 7px 0px #890d58, 
-    -4px 2px 20px 0px #2c252c !important;
+    -1px -1px 10px 0px #b8f1b0d9, 
+    3px 3px 16px 0px #ffffff, 
+    4px 4px 20px 0px #b8f1b0;
   margin-bottom: 20px;
 }
 
@@ -91,7 +90,7 @@ header{
 .divButtonHeader > a{
   font-size: 25px;
   font-weight: 400;
-  background: -webkit-linear-gradient(143deg, #ff00f7, #ffd0f9);
+  background: -webkit-linear-gradient(143deg, #15644c, #003222);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
