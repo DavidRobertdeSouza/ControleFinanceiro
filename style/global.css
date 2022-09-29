@@ -16,12 +16,18 @@
     --color7: #2a84d8;
     --color8: #2b1a76;
     --color9: #c896d5;
+    --color-header: #8A0D59
 }
 
 body{
-    background-image: linear-gradient(112deg, var(--color1), #200042);
-    color: var(--color3);
-    font-family: var(--font-family);
+  background-image: linear-gradient(146deg, #fff3fe, #ffcbfb);
+  color: var(--color3);
+  font-family: var(--font-family);
+}
+
+.body-dark{
+  background-image: linear-gradient(112deg, var(--color1), #200042);
+  transition: 2s;
 }
 
 input::-webkit-outer-spin-button,
@@ -38,7 +44,7 @@ input[type=number] {
 header{
   height: 70px;
   width: 100%;
-  background-color: #890d58;
+  background-color: var(--color-header);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,6 +53,24 @@ header{
     -2px 2px 7px 0px #890d58, 
     -4px 2px 20px 0px #2c252c !important;
   margin-bottom: 20px;
+}
+
+.headerDark{
+  height: 70px;
+  width: 100%;
+  background-color: var(--color-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 
+    -1px -1px 10px 0px #d71ea7c7, 
+    -2px 2px 7px 0px #890d58, 
+    -4px 2px 20px 0px #2c252c !important;
+  margin-bottom: 20px;
+}
+
+.d-none{
+  display: none !important;
 }
 
 .divLogo{
@@ -60,7 +84,7 @@ header{
 .divButtonHeader{
   padding-inline: 60px;
   display: grid;
-  grid-template-columns: 5fr 5fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
 }
 

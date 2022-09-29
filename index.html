@@ -30,6 +30,7 @@
         <div class="divButtonHeader">
             <a href='#'>Cadastro</a>
             <a href='./listagem'>Listagem</a>
+            <i id='buttonTheme' class="fa-regular fa-moon buttonTheme"></i>
         </div>
     </header>
     <div id= div-notification class='notification hide'>
@@ -41,23 +42,23 @@
     </div>
     <form id=novoItem>
         <ul class="divCadastro">
-            <img src="./assets/mais.png" alt="Imagem de Mais" class="imgCadastro">
+            <img src="./assets/mais.png" alt="Imagem de Mais" class="imgCadastro d-none">
             <li>
-                <label for="inpAcao">Insira a ação</label>
-                <select name="selAcao" id="selAcao">
+                <label class='labelCadastro' for="inpAcao">Insira a ação</label>
+                <select class='inputCadastro' name="selAcao" id="selAcao">
                 </select>
             </li>
             <li>
-                <label for="inpDataCompra">Data da compra</label>
-                <input type="date" name="inpDataCompra" id="inpDataCompra" required>
+                <label class='labelCadastro' for="inpDataCompra">Data da compra</label>
+                <input class='inputCadastro' type="date" name="inpDataCompra" id="inpDataCompra" required>
             </li>
             <li>
-                <label for="inpQtd">Quantidade comprada</label>
-                <input type="number" name="inpQtd" id="inpQtd" required>
+                <label class='labelCadastro' for="inpQtd">Quantidade comprada</label>
+                <input class='inputCadastro' type="number" name="inpQtd" id="inpQtd" required>
             </li>
             <li>
-                <label for="inpValor">Valor pago (R$)</label>
-                <input type="" name="inpValor" id="inpValor" required>
+                <label class='labelCadastro' for="inpValor">Valor pago (R$)</label>
+                <input class='inputCadastro' type="" name="inpValor" id="inpValor" required>
             </li>
             <li>
                 <input type="submit" name="Cadastrar" id="btnCadastrar" class='btnCadastrar' value='Cadastrar Ação'>

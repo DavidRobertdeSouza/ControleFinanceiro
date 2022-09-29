@@ -5,6 +5,10 @@ const $inpValor         = qs('#inpValor')
 const $btnCadastrar     = qs('#btnCadastrar')
 const $selectAcao       = qs('#selAcao')
 
+const $buttonTheme      = qs('#buttonTheme')
+const $body             =qs('body')
+
+
 const $form = qs('#novoItem')
 
 let itemLocal = JSON.parse(localStorage.getItem('item')) || []
@@ -64,3 +68,41 @@ $inpValor.oninput = (e) =>{
     }
 }
 $inpValor.onchange = () => valorEnviadoFormat = 0
+
+
+$buttonTheme.onclick = () => {
+    const $divCadastro = qs('.divCadastro')
+    const $labelCadastro = qsa('.labelCadastro')
+    const $inputCadastro = qsa('.inputCadastro')
+    const $select2Selection = qsa('.select2-selection')
+    const $select2Dropdown = qsa('.select2-dropdown') 
+    const $select2SelectionRendered = qs('#select2-selAcao-container') 
+    const $btnCadastrar = qs('.btnCadastrar')
+
+    $body.classList.toggle('body-dark')
+    $divCadastro.classList.toggle('divCadastro-dark')
+    for(item of $labelCadastro){
+        item.classList.toggle('labelCadastroDark')
+    }
+    for(item of $inputCadastro){
+        item.classList.toggle('inputDark')
+    }
+    for(item of $select2Selection){
+        item.classList.toggle('inputDark')
+    }
+    for(item of $select2Dropdown){
+        item.classList.toggle('inputDark')
+    }
+    $select2SelectionRendered.classList.toggle('select2-selection__renderedDark')
+    $btnCadastrar.classList.toggle('btnCadastrarDark')
+
+    if($buttonTheme.classList.value.includes('fa-moon')){
+        $buttonTheme.classList.remove('fa-moon')
+        $buttonTheme.classList.add('fa-sun')
+    }else{
+        $buttonTheme.classList.add('fa-moon')
+        $buttonTheme.classList.remove('fa-sun')
+    }
+
+    
+}

@@ -11,10 +11,21 @@ form{
 
 .divCadastro{
     position: relative;
+    border: 1px solid #f62976;
     gap: 2px;
-    background-image: linear-gradient(121deg, #26074a, var(--color1));
+    background-image: linear-gradient(146deg, #fff3fe, #ffcbfb);
+    box-shadow: 
+        inset 2px 2px 3px 0px #ffe0ff00, 
+        -1px -1px 10px 0px #ff00e0a3, 
+        3px 3px 16px 0px #ffffff, 
+        4px 4px 20px 0px #ff00bcb3;
     padding: 3em 1em 1em 1em;
     border-radius: 25px;
+}
+
+.divCadastro-dark{
+    border: none;
+    background-image: linear-gradient(121deg, #26074a, var(--color1));
     box-shadow: 
     inset 2px 2px 3px 0px #751ed7c7, 
     -1px -1px 10px 0px #751ed7c7, 
@@ -39,24 +50,45 @@ form{
     min-width: 650px;
 }
 
-.divCadastro>li>label{
+.labelCadastro{
     display: flex;
     align-items: center;
     font-size: 25px;
     font-weight: 400;
-    background-image: linear-gradient(143deg, var(--color3), var(--color3), var(--color5));
+    background-image: linear-gradient(143deg, var(--color1), var(--color2), var(--color3));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.divCadastro>li>input, select, .select2-selection, .select2-dropdown {
-    box-shadow: -1px -1px 10px 0px #751ed7c7, 3px 3px 16px 0px #000000, 4px 4px 20px 0px #000000;
+.labelCadastroDark{
+    background-image: linear-gradient(143deg, var(--color3), var(--color3), var(--color5));
+}
+
+.inputCadastro, .select2-selection, .select2-dropdown {
+    box-shadow: 
+        -1px -1px 10px 0px #ff00e080, 
+        3px 3px 16px 0px #ffffff;
+    border-radius: 10px;
+    background-color: var(--color9) !important;
+    color: var(--color1);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-family);
+    border: none;
+}
+
+.inputDark{
+    box-shadow: 
+        -1px -1px 10px 0px #751ed7c7, 
+        3px 3px 16px 0px #000000, 
+        4px 4px 20px 0px #000000;
     border-radius: 10px;
     background-color: var(--color9) !important;
     color: var(--color3);
     font-size: 14px;
     font-weight: 400;
     font-family: var(--font-family);
+    border: none;
 }
 
 .select2{
@@ -68,6 +100,10 @@ form{
 }
 
 .select2-selection__rendered{
+    color: var(--color1) !important;
+}
+
+.select2-selection__renderedDark{
     color: var(--color3) !important;
 }
 
@@ -87,23 +123,42 @@ li:last-child{
     padding: 0.5em;
     border-radius: 10px;
     font-size: 28px !important;
-    font-weight: 700 !important;
-    box-shadow: 
-    inset 2px 2px 3px 0px #751ed7c7, 
-    -1px -1px 10px 0px #751ed7c7, 
-    3px 3px 16px 0px #000000, 
-    4px 4px 20px 0px #000000 !important;
     cursor: pointer;
     transition: transform .2s ease;
     border: none;
-    background-image: linear-gradient(143deg, var(--color3), var(--color3), var(--color5));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    box-shadow: 
+        inset 2px 2px 3px 0px #ffe0ff00, 
+        -1px -1px 10px 0px #ff00e0a3, 
+        3px 3px 16px 0px #ffffff, 
+        4px 4px 20px 0px #ff00bcb3;
+    background-image: linear-gradient(143deg, var(--color1), var(--color2), var(--color3));
+}
+
+.btnCadastrarDark{
+    box-shadow: 
+        inset 2px 2px 3px 0px #751ed7c7, 
+        -1px -1px 10px 0px #751ed7c7, 
+        3px 3px 16px 0px #000000, 
+        4px 4px 20px 0px #000000 !important;
+    background-image: linear-gradient(143deg, var(--color3), var(--color3), var(--color5));
 }
 
 .btnCadastrar:hover{
     -webkit-transform: scale(1.02);
     transform: scale(1.02);
+}
+
+.buttonTheme{
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 25px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(143deg, var(--color3), var(--color3), var(--color5));
+    cursor: pointer;
 }
 
 .es-list { max-height: 160px !important; }
