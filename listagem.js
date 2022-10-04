@@ -1,4 +1,7 @@
 const $bodyTable = qs('#bodyTable')
+const $buttonTheme = qs('#buttonTheme')
+const $body = qs('body')
+
 const valorLista = JSON.parse(localStorage.getItem('item'))
 let valueLocalStorage = localStorage.getItem('ultimoValor') ? JSON.parse(localStorage.getItem('ultimoValor')) : []
 let oldDate = localStorage.getItem('ultimaHr') ? parseInt(localStorage.getItem('ultimaHr')) : new Date().getTime()-40000000
@@ -10,6 +13,7 @@ function adicionarTabela(valores){
       let novoItem = ce('td')
 
       novoItem.innerHTML = item
+      novoItem.classList.add('itensTable')
       novaLinha.appendChild(novoItem)
     }
     $bodyTable.appendChild(novaLinha)
@@ -48,8 +52,8 @@ async function retornaDados(){
     dados.push(item.quantidade)
     dados.push(`${formatReal(item.valor)}`)
     dados.push(`R$ ${valorAtual}`)
-    dados.push(`${percPerdGan} %`)
-    dados.push(`R$ ${valorPerdGan}`)
+    dados.push(`${parseFloat(percPerdGan).toLocaleString('pt-BR', {currency: 'BRL', minimumFractionDigits: 2})} %`)
+    dados.push(`R$ ${parseFloat(valorPerdGan).toLocaleString('pt-BR', {currency: 'BRL', minimumFractionDigits: 2})}`)
     arrCompleto.push(dados)
   }
   
@@ -100,4 +104,33 @@ async function retornarValorAtual(acaoName){
   .catch(function(err) { 
     console.error(err);
   });
+}
+
+
+$buttonTheme.onclick = () => {
+  const $header = qs('header')
+  const $buttonHeader = qsa('.buttonTheme')
+  const $divTable = qs('#divTable')
+  const $itensTable = qsa('.itensTable')
+
+  $body.classList.toggle('body-dark')
+  $divTable.classList.toggle('divTableDark')
+
+  if($buttonTheme.classList.value.includes('fa-moon')){
+      $buttonTheme.classList.remove('fa-moon')
+      $buttonTheme.classList.add('fa-sun')
+  }else{
+      $buttonTheme.classList.add('fa-moon')
+      $buttonTheme.classList.remove('fa-sun')
+  }
+
+  $header.classList.toggle('headerDark')
+
+  for(item of $buttonHeader){
+      item.classList.toggle('buttonThemeDark')
+  }
+
+  for(item of $itensTable){
+    item.classList.toggle('itensTableDark')
+  }
 }

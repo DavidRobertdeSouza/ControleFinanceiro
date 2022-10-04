@@ -27,6 +27,10 @@ body{
   border-radius: 8px;
 }
 
+.divTableDark{
+  box-shadow: 0px 2px 3px 0px #14c38eb3, 0px -0.5px 0px 0px #9d9d9d40;
+}
+
 .table{
   text-align: center;
   /* overflow: hidden; */
@@ -42,10 +46,18 @@ body{
 .headTable th{
   font-weight: 600;
   font-size: 19px;
+  color: var(--color-green-3);
 }
 
-.headTable th, .bodyTable td{
+.itensTable{
   text-align: center;
   padding: 8px 16px;
   border-bottom: 1px solid #0032222b;
+}
+
+.itensTableDark{
+  text-align: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #06ffb02b;
+  color: #e9e9e9;
 }

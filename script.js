@@ -60,6 +60,9 @@ $inpValor.oninput = (e) =>{
         valorEnviadoFormat += e.data
         $inpValor.value = formatReal(valorEnviadoFormat)
     }else if(isNaN(e.data) && e.inputType != 'deleteContentBackward'){
+        if($inpValor.value = ''){
+            return
+        }
         $inpValor.value = formatReal(valorEnviadoFormat)
     }
     else{
@@ -109,9 +112,6 @@ $buttonTheme.onclick = () => {
     $header.classList.toggle('headerDark')
 
     for(item of $buttonHeader){
-        console.log(item)
         item.classList.toggle('buttonThemeDark')
-    }
-
-    
+    }   
 }
