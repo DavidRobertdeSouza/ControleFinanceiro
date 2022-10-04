@@ -37,7 +37,7 @@ $form.onsubmit = (e) => {
     itemLocal.push(acaoAtual)
 
     localStorage.setItem('item', JSON.stringify(itemLocal))
-    showNotification('Success', 'success', 3500)
+    showNotification('Ação cadastrada!', 'success', 3500)
 
     acao.value = ''
     dadoAcao.setAttribute('title', '')
@@ -78,6 +78,8 @@ $buttonTheme.onclick = () => {
     const $select2Dropdown = qsa('.select2-dropdown') 
     const $select2SelectionRendered = qs('#select2-selAcao-container') 
     const $btnCadastrar = qs('.btnCadastrar')
+    const $header = qs('header')
+    const $buttonHeader = qsa('.buttonTheme')
 
     $body.classList.toggle('body-dark')
     $divCadastro.classList.toggle('divCadastro-dark')
@@ -102,6 +104,13 @@ $buttonTheme.onclick = () => {
     }else{
         $buttonTheme.classList.add('fa-moon')
         $buttonTheme.classList.remove('fa-sun')
+    }
+
+    $header.classList.toggle('headerDark')
+
+    for(item of $buttonHeader){
+        console.log(item)
+        item.classList.toggle('buttonThemeDark')
     }
 
     
