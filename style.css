@@ -80,7 +80,7 @@ form{
 }
 
 .select2{
-    max-width: 380px;
+    max-width: 100%;
 }
 
 .select2-selection{
@@ -140,4 +140,54 @@ li:last-child{
     color: #14c38ede !important;
 }
 
-.es-list { max-height: 160px !important; }
+.es-list { 
+    max-height: 160px !important; 
+}
+  
+@media screen and (max-width: 700px) {
+    header{
+        padding-inline: 30px;
+    }
+
+    .divLogo{
+        padding-inline: 0;
+    }
+
+    .buttonTheme:first-child{
+        display: none !important;
+    }
+
+    .divButtonHeader{
+        display: flex;
+        gap: 15px;
+        padding-inline: 0;
+        grid-template-columns: 0;
+    }
+
+    form{
+        padding-inline: 15px;
+        width: 100%;
+    }
+
+    .imgCadastro{
+        width: 100px;
+        left: 50%;
+    }
+
+    .labelCadastro{
+        font-size: 17px;
+    }
+
+    .divCadastro>li{
+        min-width: 0;
+    }
+
+    .select2{
+        max-width: 100%;
+    }
+
+    .btnCadastrar{
+        width: 60%;
+        font-size: 19px !important;
+    }
+}
