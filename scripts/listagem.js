@@ -66,6 +66,9 @@ function formataData(date){
 }
 
 async function start(){
+  if (valorLista == undefined){
+    return
+  } 
   let acaoValorLista = valorLista.map(i => i.acao)
   let acaoValueLocalStorage = valueLocalStorage.map(i => i.acao)
   let naoContem = true
@@ -93,18 +96,23 @@ function retornarValorLocalStorage(acao){
   }
 }
 
+
 async function retornarValorAtual(acaoName){
-  const urlApi = `https://api.hgbrasil.com/finance/stock_price?key=3e773a06&symbol=${acaoName}`
+  const urlApi = `https://api-cotacao-b3.labdo.it/api/cotacao/cd_acao/${acaoName}/1`
+
   return fetch(urlApi)
   .then(async response => {
     return response.json().then(data => {
-      return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
+      return parseFloat(data[0].vl_fechamento).toLocaleString('pt-BR', {currency: 'BRL', minimumFractionDigits: 2})
+      // return data.results[acaoName].price.toFixed(2).toString().replace(".", ",")
     })
   })
   .catch(function(err) { 
     console.error(err);
   });
 }
+
+retornarValorAtual('mglu3')
 
 
 $buttonTheme.onclick = () => {

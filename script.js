@@ -8,7 +8,6 @@ const $selectAcao       = qs('#selAcao')
 const $buttonTheme      = qs('#buttonTheme')
 const $body             =qs('body')
 
-
 const $form = qs('#novoItem')
 
 let itemLocal = JSON.parse(localStorage.getItem('item')) || []
@@ -47,7 +46,8 @@ $form.onsubmit = (e) => {
     valor.value = ''
 }
 
-function optionsAcoes(){
+async function optionsAcoes(){
+    let obj = await carregarEmpresas()
     for(let i in obj){
         let nomeAcaoSigla = `${obj[i].sigla} - ${obj[i].nome}`
         carregarSelect(obj[i].sigla, nomeAcaoSigla, $selectAcao)
