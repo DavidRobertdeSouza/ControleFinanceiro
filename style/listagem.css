@@ -25,6 +25,7 @@ body{
   margin-block: 20px;
   box-shadow: 0px 2px 3px 0px #9d9d9d, 0px -0.5px 0px 0px #9d9d9d40;
   border-radius: 8px;
+  width: 95%;
 }
 
 .divTableDark{
@@ -64,12 +65,8 @@ body{
 
 
 @media screen and (max-width: 700px) {
-  header{
-      padding-inline: 30px;
-  }
-
   .divLogo{
-      padding-inline: 0;
+      padding-inline: 30px;
   }
 
   .buttonTheme:nth-child(2){
@@ -79,12 +76,8 @@ body{
   .divButtonHeader{
       display: flex;
       gap: 15px;
-      padding-inline: 0;
+      padding-inline: 30px;
       grid-template-columns: 0;
-  }
-
-  .divTable{
-    width: 100%;
   }
 
   .headTable th, .itensTable{
