@@ -62,6 +62,7 @@ form{
     font-weight: 400;
     font-family: var(--font-family);
     border: 2px solid var(--color-green-1) !important;
+    width: 100%;
 }
 
 .select2-selection:focus{
@@ -81,6 +82,7 @@ form{
 
 .select2{
     max-width: 100%;
+    width: 100% !important;
 }
 
 .select2-selection{
